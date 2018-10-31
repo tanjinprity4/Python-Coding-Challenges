@@ -1,0 +1,21 @@
+def run():
+    string_numbers = input("Enter numbers for array: ")
+    int_array = list(map(int, string_numbers))
+    int_array_length = len(int_array)
+    int_counter = 0
+    while int_counter < int_array_length:
+        int_repeat = 0
+        int_check = 0
+        int_x = int_array[int_counter]
+        while int_check < int_array_length: 
+            if int_check != int_counter:
+                int_y = int_array[int_check]
+                if int_x == int_y:
+                    int_repeat += 1
+            int_check += 1
+        if int_repeat == 0:
+            print(str(int_x))
+            break
+        int_counter +=1
+if __name__ == "__main__":
+    run()
