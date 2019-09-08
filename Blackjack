@@ -1,0 +1,45 @@
+import random
+
+class Hand():
+  def __init__(self):
+    self.total = 0
+    self.draw()
+    self.draw()
+  
+  def draw(self):
+    card_values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
+    value_drawn = card_values[random.randint(0, len(card_values)-1)]
+    self.total += value_drawn
+  
+  def get_player_input():
+    print("Your hand total is " + str(player.total))
+    return input("Draw or hold?")
+ 
+player = Hand()
+dealer = Hand()
+
+command = get_player_input()
+while command == "draw" and player.total <= 21:
+  player.draw()
+  if player.total > 21:
+    print("Your total is now " + str(player.total)))
+    print("Player is over 21!")
+  else:
+    command = get_player_input()
+
+if not player.total > 21:
+  while dealer.total < 17:
+    dealer.draw()
+    print("Dealer's total is now " + str(dealer.total)))
+    if player.total > 21:
+      print("Dealer is over 21!")
+if player.total > 21:
+  print("Dealer wins!")
+elif dealer.total > 21:
+  print("Player wins!")
+else:
+  if player.total > dealer.total:
+    print("Player wins!")
+  else:
+    print("Dealer wins!")
+print("Dealer wins!")
