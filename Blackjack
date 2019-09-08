@@ -31,7 +31,7 @@ if not player.total > 21:
   while dealer.total < 17:
     dealer.draw()
     print("Dealer's total is now " + str(dealer.total)))
-    if player.total > 21:
+    if dealer.total > 21:
       print("Dealer is over 21!")
 if player.total > 21:
   print("Dealer wins!")
