@@ -1,0 +1,144 @@
+class List():
+    def __init__(self, max_size):
+        self.array = [None] * max_size
+        self.size = max_size
+        
+    # Returns the array itself.
+    def get_array(self):
+        return self.array
+    
+    # Add Single Element to The List.
+    def append(self, value):
+        i = 0
+        while self.array[i] != None:
+            i += 1
+        self.array[i] = value
+    
+    # Add Elements of a List to Another List.
+    def extend(self, iterable):
+        i = 0
+        while self.array[i] != None:
+            i += 1
+        for j in iterable:
+            self.array[i] = j
+            i += 1
+    
+    # Inserts Element to The List.
+    def insert(self, index, value):
+        i = 0
+        while self.array[i] != None:
+            i += 1
+        while i > index:
+            self.array[i] = self.array[i - 1]
+            i -= 1
+        self.array[i] = value
+    
+    # Removes Element at Given Index.
+    def pop(self, index = None):
+        if index is not None:
+            current_index = index
+            next_index = index + 1
+            while next_index < self.size and self.array[next_index] != None:
+                self.array[current_index] = self.array[next_index]
+                current_index += 1
+                next_index += 1
+            self.array[current_index] = None
+            
+        else: 
+            current_index = 0
+            while current_index < self.size and self.array[current_index] != None:
+                current_index += 1
+            self.array[current_index - 1] = None
+
+    # Removes Given Element from the List.
+    def remove(self, value):
+        i = 0
+        bool_found = False
+        while not bool_found:
+            if self.array[i] == value:
+                self.pop(i)
+                bool_found = True
+            i += 1
+    
+    # Removes all Items from the List.
+    def clear(self):
+        for i in range(self.size):
+            self.array[i] = None
+    
+    # Returns smallest index of element in list.
+    def index(self, value):
+        for i in range(self.size):
+            if self.array[i] == value:
+                return i
+    
+    # Returns occurrences of element in a list.
+    def count(self, value):
+        count = 0
+        for i in self.array:
+            if i == value:
+                count += 1
+        return count
+      
+    # Sorts elements of a list.
+    def sort(self):
+        sorted_arr = List(self.size)
+        int_i = 0
+        while int_i < self.size and self.array[int_i] != None:
+            value = self.array[int_i]
+            int_j = 0
+            sorted_value = sorted_arr.array[int_j]
+            while int_j < sorted_arr.size and sorted_value != None and sorted_value < value:
+                int_j += 1
+                sorted_value = sorted_arr.array[int_j]
+            if sorted_value == None:
+                sorted_arr.append(value)
+            else:
+                sorted_arr.insert(int_j, value)
+            int_i += 1
+        self.array = sorted_arr.array
+    
+    # Reverses a List.
+    def reverse(self):
+        int_i = 0
+        new_array = List(self.size)
+        while int_i < self.size and self.array[int_i] != None:
+            int_i += 1
+        int_i -= 1
+        while int_i >= 0:
+            new_array.append(self.array[int_i])
+            int_i -= 1
+        self.array = new_array.array
+       
+    # Returns Shallow Copy of a List. 
+    def copy(self):
+        copied_list = List(self.size)
+        for i in range(self.size):
+            copied_list.array[i] = self.array[i]
+        return copied_list
+    
+arr = List(8)
+arr.append(5)
+arr.append(11)
+arr.append(12)
+arr.remove(5)
+arr.append(13)
+
+arr.extend([11,2,10,8])
+arr.insert(2,10)
+print("Array created: ", arr.get_array())
+copy = arr.copy()
+print("Shallow copy of the array: ", copy.get_array())
+arr.pop()
+arr.pop()
+arr.pop()
+print("Array created after popping 3 values: ", arr.array)
+
+index = arr.index(10)
+count = arr.count(10)
+print("Index of 10 in the array: ", index)
+print("Occurrences of 10 in the array: ", count)
+arr.sort()
+arr.reverse()
+
+print("Array obtained after all modifications: ", arr.get_array)
+arr.clear()
