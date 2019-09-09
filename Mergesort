@@ -1,0 +1,33 @@
+def merge(a,b):
+  sorted_arr = []
+  a_index = 0
+  b_index = 0
+  while a_index < len(a) and b_index < len(b):
+    if a[a_index] < b[b_index]:
+      sorted_arr.append(a[a_index])
+      a_index += 1
+    else:
+      sorted_arr.append(b[b_index])
+      b_index += 1
+  if a_index == len(a):
+    sorted_arr.extend(b[b_index:])
+  else:
+    sorted_arr.extend(a[a_index:])
+  return sorted_arr
+
+def mergesort(arr):
+  if len(arr) <= 1:
+    return arr
+  else:
+    left = mergesort(arr[:len(arr)//2])
+    right = mergesort(arr[len(arr)//2:])
+    return merge(left,right)
+  # return arr
+
+print(mergesort([1,76,9,76,9,65,8,7,6,7]))
+# Time complexity:O(nlogn)
+# Space : O(n)
+# Auxiliary Space: O(n)
+# Algorithmic Paradigm: Divide and Conquer
+# Sorting In Place: No in a typical implementation
+# Stable: Yes
