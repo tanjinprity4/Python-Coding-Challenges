@@ -12,13 +12,13 @@ def quicksort(arr):
         less.append(x)
       elif x == pivot:
         equal.append(x)
-    print("arr", arr)
-    print("p", pivot)
-    print("l",less)
-    print("e",equal)
-    print("g",greater)
+    print("Array: ", arr)
+    print("Pivot: ", pivot)
+    print("Array with values less than pivot: ",less)
+    print("Array with values equal to pivot: ",equal)
+    print("Array with values greater than pivot: ",greater)
     total = quicksort(less) + equal + quicksort(greater)
-    print("new", total)  
+    print("Sorted array: ", total)  
     return total
   else:
       return arr
