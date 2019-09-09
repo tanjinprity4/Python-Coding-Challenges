@@ -1,0 +1,29 @@
+def quicksort(arr):
+  less = []
+  equal = []
+  greater =[]
+  
+  if len(arr) > 1:
+    pivot = arr[0]
+    for x in arr:
+      if x > pivot:
+        greater.append(x)
+      elif x < pivot:
+        less.append(x)
+      elif x == pivot:
+        equal.append(x)
+    print("arr", arr)
+    print("p", pivot)
+    print("l",less)
+    print("e",equal)
+    print("g",greater)
+    total = quicksort(less) + equal + quicksort(greater)
+    print("new", total)  
+    return total
+  else:
+      return arr
+    
+print(quicksort([1,2,34,3,2,45, 54,6,7]))
+
+#time complexity, worst case: O(n^2)
+#average case: O(nlogn)
