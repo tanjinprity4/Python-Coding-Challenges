@@ -109,19 +109,3 @@ linked_list.append(1)
 linked_list.print_list()
 reverseOrder(linked_list)
 
-
-# linked_list.remove(0)
-# linked_list.print_list()
-
-# linked_list.append("a")
-# linked_list.print_list()
-
-# linked_list.remove(2)
-# linked_list.print_list()
-
-# linked_list.insert("i", 2)
-# linked_list.print_list()
-# m = int(input("Enter the number of position from the end of the list: "))
-# value = mthvalue(linked_list, m)
-# print("value is: " + str(value))
-
