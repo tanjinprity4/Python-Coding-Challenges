@@ -1,3 +1,5 @@
+# find first number not repeated in an array.py
+
 def run():
     string_numbers = input("Enter numbers for array: ")
     int_array = list(map(int, string_numbers))
